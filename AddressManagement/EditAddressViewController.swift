@@ -18,11 +18,21 @@ class EditAddressViewController: UIViewController
     var city : String?
     var plz : String?
     
+    
+    @IBOutlet weak var checkAddress: UIButton!
+    @IBOutlet weak var showMap: UIButton!
+    
     @IBOutlet weak var tfFirstName: UITextField!
     @IBOutlet weak var tfLastName: UITextField!
     @IBOutlet weak var tfStreet: UITextField!
     @IBOutlet weak var tfPlz: UITextField!
     @IBOutlet weak var tfCity: UITextField!
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        checkAddress.setFAIcon(icon: .FACheck, iconSize: 25, forState: .normal)
+        showMap.setFAIcon(icon: .FAGlobe, iconSize: 25, forState: .normal)
+    }
     
     @IBAction func btnEdit(_ sender: UIBarButtonItem)
     {

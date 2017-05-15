@@ -19,8 +19,6 @@ class WebService
         
         queue.async
         {
-            
-            
                 let defaults = UserDefaults.standard
                 var webServiceUrl = ""
             
@@ -28,9 +26,7 @@ class WebService
                 {
                     let urlData = urlObject as! NSData
                     webServiceUrl = (NSKeyedUnarchiver.unarchiveObject(with: urlData as Data) as? String)!
-                    
                 }
-            
             
                 guard let url = URL(string:webServiceUrl) else
                 {
@@ -114,7 +110,7 @@ class WebService
                 return nil
             }
  
-            let response = Address(id: id, firstName: firstName, lastName: lastName, street: street, city: city, plz: plz)
+            let response = Address(id: id, firstName: firstName, lastName: lastName, street: street, city: city, plz: plz, searchPercentage : 0)
             
             items.append(response)
         }
@@ -186,9 +182,6 @@ class WebService
                 {
                     return
                 }
-                
-                print(addressId)
-
             }
                 
             catch
@@ -203,7 +196,7 @@ class WebService
     
     static func postDataToUrl(address:Address)
     {
-        let postEndpoint: String = "http://addressodata20170508023216.azurewebsites.net/odata/Addresses/"
+        let postEndpoint: String = "http://addressodata20170508023216.azurewebsites.net/odata/Addresses"
         
         guard let url = URL(string: postEndpoint) else
         {
@@ -266,8 +259,6 @@ class WebService
                 }
             }
                 
-                
-        
             catch
             {
                 return

@@ -22,6 +22,8 @@
 		188845FF1EC596B400761642 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188845FE1EC596B400761642 /* MapViewController.swift */; };
 		188C0CB61EC45CBE001EF69A /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C0CB51EC45CBE001EF69A /* CustomHeaderCell.swift */; };
 		188C0CB81EC49F42001EF69A /* EditAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C0CB71EC49F42001EF69A /* EditAddressViewController.swift */; };
+		18DAA0211EC9C2080066A859 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAA01F1EC9C2080066A859 /* FAIcon.swift */; };
+		18DAA0221EC9C2080066A859 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18DAA0201EC9C2080066A859 /* FontAwesome.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		188845FE1EC596B400761642 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		188C0CB51EC45CBE001EF69A /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		188C0CB71EC49F42001EF69A /* EditAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAddressViewController.swift; sourceTree = "<group>"; };
+		18DAA01F1EC9C2080066A859 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		18DAA0201EC9C2080066A859 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		1877CEE51EC2EC1100D6D1F6 /* AddressManagement */ = {
 			isa = PBXGroup;
 			children = (
+				18DAA01D1EC9BBB00066A859 /* Resources */,
 				1877CF031EC32C8E00D6D1F6 /* Services */,
 				1877CEFA1EC2EC3F00D6D1F6 /* Controller */,
 				1877CEF91EC2EC3700D6D1F6 /* View */,
@@ -124,6 +129,15 @@
 				1877CF081EC334A400D6D1F6 /* WebService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		18DAA01D1EC9BBB00066A859 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18DAA01F1EC9C2080066A859 /* FAIcon.swift */,
+				18DAA0201EC9C2080066A859 /* FontAwesome.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +203,7 @@
 				1877CEF11EC2EC1100D6D1F6 /* LaunchScreen.storyboard in Resources */,
 				1877CEEE1EC2EC1100D6D1F6 /* Assets.xcassets in Resources */,
 				1877CEEC1EC2EC1100D6D1F6 /* Main.storyboard in Resources */,
+				18DAA0221EC9C2080066A859 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DAA0211EC9C2080066A859 /* FAIcon.swift in Sources */,
 				188845FF1EC596B400761642 /* MapViewController.swift in Sources */,
 				1877CEFC1EC2ED0700D6D1F6 /* Address.swift in Sources */,
 				1877CF001EC2FDF300D6D1F6 /* TableViewDataSource.swift in Sources */,

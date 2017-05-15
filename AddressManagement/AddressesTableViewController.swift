@@ -15,6 +15,8 @@ class AddressesTableViewController: UITableViewController, UISearchBarDelegate
     var headerAddress : Address?
     var datasource = TableViewDataSource()
     
+    var unsortedCustomers = [Address]()
+    
     var addressList = [Address]()
     {
         didSet
@@ -35,9 +37,19 @@ class AddressesTableViewController: UITableViewController, UISearchBarDelegate
             (response) in
             
             self.addressList = response
-            self.datasource.addresses = self.addressList
-            self.tableView.dataSource = self.datasource
             
+            for address in self.addressList
+            {
+                self.calcSearchPercentage(actAddress: address, address: self.headerAddress!)
+                self.unsortedCustomers.append(address)
+            }
+            
+            self.datasource.addresses = self.unsortedCustomers.sorted
+            {
+                $0.searchPercentage > $1.searchPercentage
+            }
+
+            self.tableView.dataSource = self.datasource
             self.tableView.reloadData()
         }
     }
@@ -96,6 +108,24 @@ class AddressesTableViewController: UITableViewController, UISearchBarDelegate
         }
     
         return headerCell
+    }
+    
+    func calcSearchPercentage(actAddress: Address, address:Address)
+    {
+        if address.firstName == actAddress.firstName
+        {
+            actAddress.searchPercentage = 50
+
+            if address.plz == actAddress.plz || address.city == actAddress.city
+            {
+                actAddress.searchPercentage += 30;
+                
+                if address.street == actAddress.street
+                {
+                    actAddress.searchPercentage += 20;
+                }
+            }
+        }
     }
     
     // MARK: - Navigation

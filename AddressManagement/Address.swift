@@ -14,6 +14,7 @@ class Address
     var street : String
     var city : String
     var plz : String
+    var searchPercentage : Int
     
     init()
     {
@@ -23,9 +24,10 @@ class Address
         street = ""
         city = ""
         plz = ""
+        searchPercentage = 0
     }
         
-    init(id:Int, firstName : String, lastName : String, street : String, city: String, plz : String)
+    init(id:Int, firstName : String, lastName : String, street : String, city: String, plz : String, searchPercentage :Int)
     {
         self.id = id
         self.firstName = firstName
@@ -33,5 +35,6 @@ class Address
         self.street = street
         self.city = city
         self.plz = plz
+        self.searchPercentage = searchPercentage
     }
 }

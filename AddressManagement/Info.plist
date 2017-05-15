@@ -45,7 +45,7 @@
 	<string>&quot;AddressManagement&quot; benötigt die Berechtigung, die aktuelle Position zu ermitteln.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>&quot;AddressManagement&quot; benötigt die Berechtigung, immer die aktuelle Position zu ermitteln</string>
-	<key>NSAppTransportSecurity</key>
+		<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>

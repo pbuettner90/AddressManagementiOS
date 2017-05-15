@@ -24,6 +24,10 @@ class NewAddressViewController: UIViewController, CLLocationManagerDelegate
     var plz : String?
     
     let manager = CLLocationManager()
+    
+    @IBOutlet weak var checkAddress: UIButton!
+    @IBOutlet weak var getPosition: UIButton!
+    @IBOutlet weak var showMap: UIButton!
    
     @IBOutlet weak var tfFirstName: UITextField!
     @IBOutlet weak var tfLastName: UITextField!
@@ -31,6 +35,12 @@ class NewAddressViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var tfPlz: UITextField!
     @IBOutlet weak var tfCity: UITextField!
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        checkAddress.setFAIcon(icon: .FACheck, iconSize: 25, forState: .normal)
+        getPosition.setFAIcon(icon: .FAMapMarker, iconSize: 25, forState: .normal)
+        showMap.setFAIcon(icon: .FAGlobe, iconSize: 25, forState: .normal)
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -46,6 +56,10 @@ class NewAddressViewController: UIViewController, CLLocationManagerDelegate
         {
             setTextFields()
         }
+        
+        
+
+        
     }
     
     func setTextFields()
@@ -147,7 +161,7 @@ class NewAddressViewController: UIViewController, CLLocationManagerDelegate
             if add
             {
 
-                //WebService.postDataToUrl(address: address!)
+                WebService.postDataToUrl(address: address!)
                 vc.tableView.reloadData()
             }
         }
