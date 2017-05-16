@@ -56,10 +56,6 @@ class NewAddressViewController: UIViewController, CLLocationManagerDelegate
         {
             setTextFields()
         }
-        
-        
-
-        
     }
     
     func setTextFields()

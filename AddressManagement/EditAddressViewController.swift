@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class EditAddressViewController: UIViewController
 {
@@ -17,8 +18,11 @@ class EditAddressViewController: UIViewController
     var street : String?
     var city : String?
     var plz : String?
+    var position : Position?
     
-    
+    var coords: CLLocationCoordinate2D?
+
+
     @IBOutlet weak var checkAddress: UIButton!
     @IBOutlet weak var showMap: UIButton!
     
@@ -44,9 +48,6 @@ class EditAddressViewController: UIViewController
         super.viewDidLoad()
         setTextFields()
         disableTextFields()
-        
-        
-        
     }
     
     private func saveDataToModel()
@@ -88,12 +89,15 @@ class EditAddressViewController: UIViewController
         tfPlz.text = plz
     }
     
+       
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "showMap"
         {
-            
-            
+            let vc = segue.destination as! MapViewController
+            vc.street = tfStreet.text!
+            vc.city = tfCity.text!
+            vc.isUpdated = true 
         }
         
         else if segue.identifier=="checkAddress"
