@@ -21,9 +21,10 @@ class WebService
         {
                 let defaults = UserDefaults.standard
                 var webServiceUrl = ""
-            
+
                 if let urlObject = defaults.object(forKey: "url")
                 {
+
                     let urlData = urlObject as! NSData
                     webServiceUrl = (NSKeyedUnarchiver.unarchiveObject(with: urlData as Data) as? String)!
                 }
@@ -37,13 +38,14 @@ class WebService
                 let task = session.dataTask(with: url, completionHandler:
                 {
                     (data, response, error) in
+                    
                 
                     if let error = error
                     {
                         print(error.localizedDescription)
                         return
                     }
-                
+                    
                     guard let data = data,
                           let apiResponse = self.createResponse(fromData: data) else
                     {
@@ -120,9 +122,18 @@ class WebService
     
     static func updateData(address:Address)
     {
-        let putEndpoint: String = "http://addressodata20170508023216.azurewebsites.net/odata/Addresses(\(address.id))"
+        let defaults = UserDefaults.standard
+        var webServiceUrl = ""
+        
+        if let urlObject = defaults.object(forKey: "url")
+        {
+            
+            let urlData = urlObject as! NSData
+            webServiceUrl = (NSKeyedUnarchiver.unarchiveObject(with: urlData as Data) as? String)!
+        }
+        
+        let putEndpoint: String = "\(webServiceUrl)/(\(address.id))"
 
-        print(putEndpoint)
         guard let url = URL(string: putEndpoint) else
         {
             print("Fehler beim Erstellen der URL")
@@ -196,9 +207,18 @@ class WebService
     
     static func postDataToUrl(address:Address)
     {
-        let postEndpoint: String = "http://addressodata20170508023216.azurewebsites.net/odata/Addresses"
+        let defaults = UserDefaults.standard
+        var webServiceUrl = ""
         
-        guard let url = URL(string: postEndpoint) else
+        
+        if let urlObject = defaults.object(forKey: "url")
+        {
+            
+            let urlData = urlObject as! NSData
+            webServiceUrl = (NSKeyedUnarchiver.unarchiveObject(with: urlData as Data) as? String)!
+        }
+        
+        guard let url = URL(string: webServiceUrl) else
         {
             print("Fehler beim Erstellen der URL")
             return
